@@ -1,0 +1,213 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff7f0; /* Fondo cálido claro */
+  color: #3d2600; /* Texto marrón oscuro */
+}
+
+h1 {
+  color: #e96900; /* Naranja fuerte */
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px #c45a00;
+}
+
+/* Contenedor principal */
+.app-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background: #fff5e6; /* Blanco anaranjado */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(233, 105, 0, 0.2);
+}
+
+/* Inputs y selects */
+input[type="text"],
+select {
+  border: 1px solid #f5b461;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  width: 70%;
+  background-color: #fff8f0;
+  color: #3d2600;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #e96900;
+  box-shadow: 0 0 5px rgba(233, 105, 0, 0.4);
+}
+
+/* Botones */
+button {
+  background-color: #e96900;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 12px;
+  box-shadow: 0 2px 6px rgba(233, 105, 0, 0.5);
+}
+
+button:hover {
+  background-color: #c45a00;
+}
+
+button:disabled {
+  background-color: #f1b87a;
+  cursor: not-allowed;
+}
+
+/* Contenedores columnas */
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  min-height: 400px;
+  background-color: #fff0d9; /* Fondo anaranjado muy claro */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #f3b26f;
+  transition: background-color 0.3s;
+}
+
+.column h3 {
+  color: #d45c00;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #d45c00;
+  padding-bottom: 6px;
+}
+
+/* Hover al arrastrar */
+.column.drag-over {
+  background-color: #ffd8a0;
+  box-shadow: 0 0 15px rgba(233, 105, 0, 0.5);
+}
+
+/* Columna completadas naranja fuerte */
+.column.completed {
+  background-color: #ff6600;  /* Naranja fuerte */
+  box-shadow: inset 0 0 10px #e65500;
+  color: white; /* Texto blanco */
+}
+
+.column.completed h3 {
+  color: white;
+  border-bottom: 2px solid #cc5200;
+}
+
+/* Tarjetas de tarea */
+.task-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(233, 105, 0, 0.15);
+  cursor: grab;
+  user-select: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  font-weight: 600;
+  color: #6e4200;
+}
+
+.task-card:active {
+  cursor: grabbing;
+  box-shadow: 0 5px 15px rgba(233, 105, 0, 0.4);
+  transform: scale(1.03);
+}
+
+.task-card.completed {
+  /*text-decoration: line-through;*/
+  color: #a97300;
+  background-color: #fff4d1;
+  font-weight: 500;
+}
+
+/* Tarjetas en columna completadas con mejor contraste */
+.column.completed .task-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  box-shadow: none;
+}
+
+.column.completed .task-card.completed {
+  /*text-decoration: line-through;*/
+  color: #ffe6cc;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Inputs y botones dentro de la app */
+.top-controls {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-controls input[type="text"] {
+  width: 70%;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Esto empuja el botón a la derecha */
+  background-color: white;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(233, 105, 0, 0.15);
+  cursor: grab;
+  user-select: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  font-weight: 600;
+  color: #6e4200;
+}
+
+.task-card button {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.task-card button.delete-incomplete {
+  color: #c0392b; /* rojo oscuro para no completadas */
+}
+
+.task-card.completed button.delete-completed {
+  color: #ffccbb; /* rojo clarito para completadas */
+  background-color: rgb(254, 74, 3);
+}
+
+
+
+/* Responsive para pantallas chicas */
+@media (max-width: 700px) {
+  .columns-container {
+    flex-direction: column;
+  }
+
+  .column {
+    min-height: auto;
+    margin-bottom: 20px;
+  }
+}

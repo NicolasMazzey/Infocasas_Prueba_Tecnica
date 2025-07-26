@@ -1,0 +1,21 @@
+# Dockerfile del backend
+
+FROM node:18-alpine
+
+# Crear directorio de trabajo
+WORKDIR /app
+
+# Copiar package.json y package-lock.json
+COPY package*.json ./
+
+# Instalar dependencias (recompila sqlite3 dentro del contenedor)
+RUN npm install
+
+# Copiar el resto del código
+COPY . .
+
+# Exponer el puerto del backend
+EXPOSE 8080
+
+# Comando para correr la app
+CMD ["npm", "start"]
