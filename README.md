@@ -42,9 +42,10 @@ docker compose up --build
 - Ubicación: backend/database.sqlite
 - Persistencia: local
 
-## 📄 Notas adicionales
+## 📄 Comandos adicionales
 
-Dentro de /backend
+Ejecutar dentro de /backend
+(Utilizenlos si eliminaron la base de datos local) 
 
 - Crear la base de datos (eliminar la carpeta database.sqlite si da error al crear)
 npx sequelize-cli db:migrate
@@ -52,10 +53,10 @@ npx sequelize-cli db:migrate
 - Inicializar la base de datos (base de datos vacia)
 npx sequelize-cli db:seed:all
 
-## PHP
+## 🐘 PHP
 
-No pude instalar php correctamente por un error con el archivo cacert.pem y php_init, por lo cual
-use node.js para no complicarme la vida:
+No pude instalar php correctamente por un error con los archivos cacert.pem y php_init, por lo cual
+use node.js para no complicarme la vida despues de estar 4 horas arreglando el problema:
 
 The Composer installer script was not successful [exit code 1].
 
